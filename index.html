@@ -21,6 +21,7 @@
   p { color:var(--muted); font-size:17px; line-height:1.45; margin:0 0 24px; }
   .btn { display:block; width:100%; padding:17px; border-radius:999px; background:var(--brand); color:#fff;
          font-weight:700; font-size:18px; text-decoration:none; box-shadow:0 8px 20px rgba(216,90,48,.3); }
+  .hint { font-size:14px; margin:12px 0 0; }
   .card { margin-top:28px; background:var(--card); border-radius:20px; padding:18px; box-shadow:0 6px 18px rgba(90,58,40,.1); text-align:left; }
   .card h2 { font-size:15px; margin:0 0 6px; }
   .card p { font-size:15px; margin:0; }
@@ -34,17 +35,18 @@
   <h1>Du wurdest eingeladen!</h1>
   <p>Tritt der Mampf-Gruppe bei – dann seht ihr gegenseitig eure Lieblingsorte und Tipps.</p>
   <a class="btn" id="open" href="mampf://gruppe">In Mampf öffnen</a>
+  <p class="hint">Klappt nur mit aktuellem Mampf auf dem iPhone. Kommt „Adresse ungültig“, schau unten bei „Noch kein Mampf?“.</p>
 
   <div class="card" id="codebox" hidden>
-    <h2>Geht nicht?</h2>
-    <p>In Mampf auf <b>Gruppen → Beitreten</b> tippen und diesen Code eingeben:</p>
+    <h2>Oder per Code</h2>
+    <p>In Mampf unten auf <b>Gruppen</b>, dann auf <b>Beitreten</b> tippen und diesen Code eingeben:</p>
     <div class="code" id="code"></div>
     <button id="copy" type="button">Code kopieren</button>
   </div>
 
   <div class="card">
     <h2>Noch kein Mampf?</h2>
-    <p>Mampf ist gerade in der Testphase über TestFlight. Frag die Person, die dich eingeladen hat, nach einer Einladung – danach einfach nochmal auf den Link tippen.</p>
+    <p>Mampf gibt es gerade nur über TestFlight. Schon installiert? Dann in der TestFlight-App auf die neueste Version aktualisieren. Sonst frag die Person, die dich eingeladen hat, nach einer Einladung. Danach einfach nochmal auf den Link tippen.</p>
   </div>
 </main>
 <script>
@@ -60,8 +62,6 @@
       var b = this;
       navigator.clipboard.writeText(raw.slice(0, 5) + "-" + raw.slice(5)).then(function () { b.textContent = "Kopiert ✓"; });
     };
-    // Gleich versuchen, Mampf zu öffnen
-    setTimeout(function () { location.href = app; }, 150);
   }
 </script>
 </body>
